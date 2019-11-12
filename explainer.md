@@ -26,7 +26,7 @@ Scoped CSS should be performant, easy to use, and works with all existing CSS to
 
 1. New at-rule: **@scoped [selector]** { // scoped rules }
 
-   Add a new at-rule @scoped to the stylesheet. @scoped takes an optional selector that matches parts of the DOM. All CSS rules that are surrounded by the curly braces are scoped styles that only apply to part of the DOM that matches the selector. 
+   Add a new at-rule **@scoped** to the stylesheet. **@scoped** takes an optional selector that matches parts of the DOM. All CSS rules that are surrounded by the curly braces are scoped styles that only apply to part of the DOM that matches the selector. 
 
    When **@scoped** selector is not present, where rules apply is context-sensitive. When the scoped blocked in the `<head>` element, rules take on the global scope. It is a no-op. However, if used inside a `<style>` tag embedded in HTML, the scoped rules apply to all the children nodes of `<style>` parent node. 
 
@@ -44,7 +44,7 @@ Scoped CSS should be performant, easy to use, and works with all existing CSS to
 3.  Enhance `Element.attachShadow(mode)` API to allow scoped rules to apply to shadow DOM.
    Currently, there are a couple of ways to style shadow DOM by the hosting application: `CSS var() and :part()`. These solutions require web components to expose aspects of web components to enable styling. However, this puts a lot of burden on the web components creator to foresee future styling needs. 
    
-   The proposal is to open up the shadow DOM for scoped styles when mode == open. When @scoped selector in a stylesheet matches the hosting element of a web component, the scoped styles are injected into the shadow root and applies to it's children.  
+   The proposal is to open up the shadow DOM for scoped styles when mode == open. When **@scoped** selector in a stylesheet matches the hosting element of a web component, the scoped styles are injected into the shadow root and applies to it's children.  
    
 ## Sample Usage:
 ##### Stylesheet

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML demo</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+        /*Page Styles*/
+        html {font-size: 18px; font-family: Arial; line-height: 1.6;}
+        body { margin: 0 auto; width: 1000px; }
+        h2, h4 { border-bottom: 1px solid #AAAAAA; }
+        .demo { margin-left: 50px; }
+        .page-content { padding: 10px; border: 1px solid #282c34; background-color: #00B7FF; width: 125px; margin: 10px 0 10px 50px;}
+        code { color: blue; }
+
+        /* style properties used in the demo  */
+        html { color: #3c4043; background-color: #eeeeee;}
+
+        /* override Accordion styles with Page*/
+        .Accordion .Accordion-trigger:nth-of-type(2)  { background-color: #eeeeee;}
+        .Accordion .Accordion-trigger:nth-of-type(2) .Accordion-title { color: darkblue; }
+
+        .new-content-style { color: darkred; background-color: #42b983;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="accordion/accordion.css">
+</head>
+<body>
+
+<div class="title">
+    <h2>HTML Accordion Demo</h2>
+    <section>
+        <p>
+            This demo uses an Accordion component to showcase scoping styles with HTML and CSS classes. <br />
+            It demonstrates the behavior with the three use cases:
+            <ol>
+                <li>Accordion styles don't leak out into the page</li>
+                <li>Page styles overriding Accordion styles</li>
+                <li>Styling content, inserted into Accordion, with page styles</li>
+            </ol>
+        </p>
+        <p>
+            The demo uses the two following CSS properties in the Accordion header to highlight the behavior:
+            <ul>
+                <li>background-color</li>
+                <li>color</li>
+            </ul>
+        </p>
+    </section>
+</div>
+
+
+<div class="demo-block">
+    <h4>Demo:</h4>
+
+    <div class="page-content"> page content </div>
+
+    <div class="demo">
+        <div class="Accordion" data-allow-multiple>
+            <button class="Accordion-trigger" aria-expanded="true" aria-controls="sect1">
+                <span class="Accordion-title">
+                  Accordion Styles doesn't leak out into the page
+                  <span class="Accordion-icon"></span>
+                </span>
+            </button>
+            <div id="sect1" class="Accordion-panel">
+                <div class="page-content"> page content </div>
+                <code>background-color</code> and <code>color</code> properties are encapsulated inside the the Accordion component.
+            </div>
+            <button class="Accordion-trigger" aria-expanded="true" aria-controls="sect2">
+                <span class="Accordion-title">
+                  Page styles overriding Accordion Styles
+                  <span class="Accordion-icon"></span>
+                </span>
+            </button>
+            <div id="sect2" class="Accordion-panel">
+                <div class="page-content">page content</div>
+                <code>background-color</code> and <code>color</code> are overridden by the page styles.
+            </div>
+            <button class="Accordion-trigger" aria-expanded="true" aria-controls="sect3">
+                <span class="Accordion-title">
+                  Styling content, inserted into Accordion, with page styles
+                  <span class="Accordion-icon"></span>
+                </span>
+            </button>
+            <div id="sect3" class="Accordion-panel">
+                <div class="page-content new-content-style">new page content</div>
+                content inserted into Accordion styles by page.
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
+<div class="References">
+    <h4>References:</h4>
+    This demo adapts the Accordion component from
+    <a href="https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html">https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html</a> <br/>
+
+</div>
+<script src="accordion/accordion.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+.Accordion {
+    margin: 0;
+    padding: 0;
+    border: 2px solid #D1D1D1;
+    border-radius: 7px;
+    width: 30em;
+}
+
+.Accordion button {
+    border-style: solid none none none;
+}
+
+.Accordion, .Accordion-title {
+    color: #9c27b0;
+}
+
+.Accordion.focus {
+    border-color: #79ADFB;
+}
+
+.Accordion-trigger, .Accordion-panel {
+    border-top: 1px solid #D1D1D1;
+}
+
+.Accordion-trigger {
+    background: #E1EDFE;
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 1em 1.5em;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    outline: none;
+}
+
+.Accordion-trigger:focus,
+.Accordion-trigger:hover {
+    background: #a9c8f5;
+}
+
+.Accordion-title {
+    display: block;
+    pointer-events: none;
+    border: transparent 2px solid;
+    border-radius: 5px;
+    padding: 0.25em 2em 0.25em 0.25em;
+    outline: none;
+}
+
+.Accordion-trigger:focus .Accordion-title {
+    border-color: #79ADFB;
+}
+
+.Accordion-icon {
+    border: solid #9E9E9E;
+    border-width: 0 2px 2px 0;
+    height: 0.5rem;
+    pointer-events: none;
+    position: absolute;
+    right: 2em;
+    top: 50%;
+    transform: translateY(-60%) rotate(45deg);
+    width: 0.5rem;
+}
+
+.Accordion-trigger:focus .Accordion-icon,
+.Accordion-trigger:hover .Accordion-icon {
+    border-color: #79ADFB;
+}
+
+.Accordion-trigger[aria-expanded="true"] .Accordion-icon {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.Accordion-panel {
+    margin: 0;
+    padding: 0.5em 1.5em;
+    color: #3c4043;
+    line-height: 1;
+}
+
+/* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+.Accordion-panel[hidden] {
+    display: none;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Web Component demo</title>
+    <script src="accordion/accordion.js" defer></script>
+    <style>
+        /*Page Styles*/
+        html {font-size: 18px; font-family: Arial; line-height: 1.6;}
+        body { margin: 0 auto; width: 1000px; }
+        h2, h4 { border-bottom: 1px solid #AAAAAA; }
+        .demo { margin-left: 50px; }
+        code { color: blue; }
+        .panel-content {padding: .5em; border: 1px solid #282c34; width: 125px;}
+        .panel-description { padding: 1em 0;}
+
+        /* style properties used in the demo  */
+        html { color: #3c4043; background-color: #eeeeee;}
+        .panel-content {  color: darkblue; background-color: #00B7FF; }
+        .panel-content-2 { color: darkslateblue; background-color: #AAAAAA; padding: .5em; border: 1px solid #282c34; width: 125px; }
+
+        /* trying to style accordion's content. But no effect. */
+        accordion-section .panel-content {  color: darkblue; background-color: #00B7FF; }
+
+        /* Using var() to style accordion's content*/
+        html { --accordion-section-content-color: darkblue; --accordion-section-content-bg-color: #00B7FF; }
+
+    </style>
+</head>
+<body>
+<div>
+    <h2 class="title">WebComponent Accordion Demo</h2>
+    <section class="panel">
+        <p>
+            This demo uses an Accordion web component (wc) to showcase CSS scoping in Web Components. <br />
+            The Accordion wc uses generic css class selector names, <code>.title</code>, <code>.panel</code>, and <code>.panel-content</code> that don't interfere <br />
+            with same selectors on the page. Styles in wc are encapsulated.
+            <br /> <br />
+            The page is can only style Accordion wc if it exposes the styles to be stylable.
+            It demonstrates the behavior with the following use cases:
+        <ol>
+            <li>Accordion styles don't leak out into the page</li>
+            <li>Page styles can't style Accordion directly</li>
+            <li>Page use var() to style Accordion wc </li>
+            <li>Page styles its content that is inserted into Accordion via <code> &lt;slot&gt; </code></li>
+        </ol>
+        </p>
+        <p>
+            The demo uses the two following CSS properties in the Accordion header to highlight the behavior:
+        <ul>
+            <li>background-color</li>
+            <li>color</li>
+        </ul>
+        </p>
+    </section>
+</div>
+
+
+<div class="demo-block">
+    <h4>Demo:</h4>
+
+    <div class="demo-legend">
+        <style>
+            /* styles taken from accordion component for illustration purpose*/
+            .accordion-panel-content {color: red; border: 1px solid red; width: 9em; padding: .5em; background-color: lightblue;}
+        </style>
+        <ul>
+            <li>Accordion content is directly added by Accordion component <br /> <div class="accordion-panel-content"> Accordion content</div></li>
+            <li>Page content is added by the page. <br />     <div class="panel-content"> Page content </div></li>
+        </ul>
+    </div>
+
+
+    <div class="demo">
+
+        <accordion-wc>
+            <accordion-section>
+                <span slot="section-title">Accordion styles don't leak out into the pag</span>
+                <div class="panel-content" slot="section-panel"> Page content</div>
+                <div class="panel-description" slot="section-description"> Both content use the same css class name selector: <code>.panel-content</code>. Their styles don't interfere. Accordion styles are encapsulated inside the component. </div>
+            </accordion-section>
+            <accordion-section>
+                <span slot="section-title">Page styles can't style Accordion directly</span>
+                <div class="panel-content" slot="section-panel">Page content</div>
+                <div class="panel-description" slot="section-description">Page tries to use a css selector, <code>accordion-section .panel-content</code>, on accordion content, but it wouldn't take effect.</div>
+            </accordion-section>
+            <accordion-section class="section">
+                <span slot="section-title">Page use var() to style Accordion wc</span>
+                <div class="panel-content" slot="section-panel">Page content</div>
+                <div class="panel-description" slot="section-description">Using CSS custom properties, var(), Accordion exposes <code>color</code> and <code>background-color</code>, to be overridable. Pages sets these properties to match that of the page.</div>
+            </accordion-section>
+            <accordion-section>
+                <span slot="section-title">Page styles its content that is inserted into Accordion via <code> &lt;slot&gt; </code></span>
+                <div class="panel-content-2" slot="section-panel"> Page content</div>
+                <div class="panel-description" slot="section-description">Page content is inserted in Accordion but the page has full control in styling its appearance.</div>
+            </accordion-section>
+        </accordion-wc>
+    </div>
+</div>
+</body>
+</html>

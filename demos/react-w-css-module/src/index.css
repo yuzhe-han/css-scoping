@@ -1,0 +1,5 @@
+/*Page Styles*/
+html {color: #3c4043; background-color: #f9f9f9; font-size: 18px; font-family: Arial; line-height: 1.6;}
+body { margin: 0 auto; width: 1000px; }
+h2, h4 { border-bottom: 1px solid #AAAAAA; }
+code { color: blue; }

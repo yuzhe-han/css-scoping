@@ -1,0 +1,10 @@
+.title { color: darkblue;}
+.demo { margin-left: 50px; }
+.description { padding: 1em 0;}
+
+/* style properties used in the demo  */
+.content {color: #3c4043;}
+
+:global  .stylingAccordion  div#sect div:first-child {
+  color:green;
+}
